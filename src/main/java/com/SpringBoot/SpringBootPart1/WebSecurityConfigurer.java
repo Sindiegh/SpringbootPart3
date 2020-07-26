@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
@@ -13,8 +15,11 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
         //enable in memory based authentication with a user named "sleepy" and "Shakir"
-        auth.inMemoryAuthentication().withUser("sleepy").password("head").roles("USER")
-                .and().withUser("Shakir").password("work").roles("USER", "ADMIN");
+        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder)
+                .withUser("user")
+                .password(passwordEncoder.encode("pass"))
+                .roles("USER");
     }
 
     @Override

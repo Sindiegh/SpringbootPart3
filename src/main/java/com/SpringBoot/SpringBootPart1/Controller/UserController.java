@@ -21,7 +21,7 @@ public class UserController {
 
         userServiceImplementation.addUser(userId,"Sindiswa","Khama");
 
-        return  new ResponseEntity<>("Success!", HttpStatus.NO_CONTENT);
+        return  new ResponseEntity<>("Success!", HttpStatus.OK);
 
     }
 
@@ -31,7 +31,7 @@ public class UserController {
 
         userServiceImplementation.addUser(userId,"Sindiswa","Khama");
 
-        return  new ResponseEntity<>("Success!", HttpStatus.NO_CONTENT);
+        return  new ResponseEntity<>("Success!", HttpStatus.OK);
 
     }
 
@@ -40,7 +40,7 @@ public class UserController {
 
         userServiceImplementation.addUser(userId,"Sindiswa","Khama");
 
-        return  new ResponseEntity<>("Success!", HttpStatus.NO_CONTENT);
+        return  new ResponseEntity<>("Success!", HttpStatus.OK);
 
     }
 
